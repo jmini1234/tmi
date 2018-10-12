@@ -1,0 +1,10 @@
+<h1>내가 쓴 글</h1>
+<% @posts.each do |post| %>
+  <p><%= post.id %></p>
+  <p><%= post.title %></p>
+  <p><%= post.content %></p>
+  <a href="/posts/<%=post.id%>"> 게시글 보기 </a>
+  <a href="/posts/<%=post.id%>/destroy">게시글 삭제</a>
+  <a href="/posts/<%=post.id%>/edit"> 게시글 수정</a>
+  <hr />
+<% end %>

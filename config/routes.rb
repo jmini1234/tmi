@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   get '/search' => 'search#search'
   get '/search/list' => 'search#list'
+
+  get '/mypages' => 'mypages#index'
+  get '/mypages/my' => 'mypages#my'
+  get '/mypages/bookmark' => 'mypages#bookmark'
+  get '/mypages/notice' => 'mypages#notice'
+  get '/mypages/setting' => 'mypages#setting'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
