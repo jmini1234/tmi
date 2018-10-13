@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/search' => 'search#index'
   get '/search/list' => 'search#list'
+
   get '/mypage' => 'mypage#my_post'
   get '/mypage/new_news:users_id' => 'mypage#new_news'
   get '/mypage/save_post:users_id' => 'mypage#save_post'

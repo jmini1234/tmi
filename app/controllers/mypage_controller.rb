@@ -6,6 +6,7 @@ class MypageController < ApplicationController
   def save_post
     @posts = Post.all
     @likes = Like.all
+
   end
 
   def new_news
