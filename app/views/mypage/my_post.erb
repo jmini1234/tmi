@@ -1,11 +1,11 @@
-<ul>
-<% @posts.each do |p| %>
- <li>
-   <% if current_user.id == p.user_id %>
-     <%=p.title%>
-     <%=p.content%>
+<h1>내 게시글</h1>
+<%= current_user.id %>
 
+<% @posts.each do |p| %>
+  <!-- <%= p.user_id %> -->
+
+  <% if current_user.id == p.user_id %>
+     제목 : <%= p.title %>
+     내용 : <%= p.content %>
   <% end %>
- </li>
- <% end %>
-</ul>
+<% end %>
