@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <p><%= current_user.id %></p>
+<% else %>
+  <p>로그인 안 된 상태</p>
+<% end %>

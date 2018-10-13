@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @comment = Comment.new
   end
 
   # view 없는 것
