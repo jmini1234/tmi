@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  get '/search' => 'search#search'
+
+  get '/search' => 'search#index'
   get '/search/list' => 'search#list'
   get '/mypage' => 'mypage#my_post'
   get '/mypage/new_news:users_id' => 'mypage#new_news'

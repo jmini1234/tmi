@@ -1,7 +1,11 @@
 <h1>Search#list</h1>
-<%=params[:query]%>
+<%= @query%>
 <% if @posts.present? %>
-  <% render @posts %>
+  <% @posts.each do |post| %>
+    <p><%= post.id %>번 째 글입니당</p>
+    <p>제목 : <%= post.title %></p>
+    <p>내용 : <%= post.content %></p>
+    <% end %>
 <% else %>
- <p><%= params[:query]를 포함한 검색 결과가 없습니다.%></p>
+ <p><%= "#{@query} 를 포함한 검색 결과가 없습니다"%></p>
 <% end %>
