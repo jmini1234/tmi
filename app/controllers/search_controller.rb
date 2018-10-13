@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   end
 
   def list
-    @posts = Post.all
+    # @posts = Post.all
     @query = params[:query]
     if @query
       @posts = Post.search(params[:query]).order("created_at DESC")
