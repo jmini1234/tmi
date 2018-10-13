@@ -1,0 +1,11 @@
+<ul>
+<% @posts.each do |p| %>
+ <li>
+   <% if current_user.id == p.user_id %>
+     <%=p.title%>
+     <%=p.content%>
+
+  <% end %>
+ </li>
+ <% end %>
+</ul>
