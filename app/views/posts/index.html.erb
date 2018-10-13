@@ -1,0 +1,12 @@
+<h1>게시판!</h1>
+<p><a href="/posts/new">글 작성하기</a></p>
+<% @posts.each do |post| %>
+  <p><%= post.id %>번 째 글입니당</p>
+  <p>제목 : <%= post.title %></p>
+  <p>내용 : <%= post.content %></p>
+  <p><%= post.created_at %></p>
+  <p><%= post.updated_at %></p>
+  <%= link_to 'Show', post %></td>
+  <%= link_to 'Edit', edit_post_path(post) %></td>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
