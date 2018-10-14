@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get '/search' => 'search#search'
+  get '/search' => 'search#index'
   get '/search/list' => 'search#list'
 
   get '/mypage' => 'mypage#my_post'
@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get '/mypage/save_post:users_id' => 'mypage#save_post'
   get '/mypage/setting:users_id' => 'mypage#setting'
 
-  resources :posts
+  resources :posts do
+      resources :comments, only: [:create]
+    end
+  resources :comments, only: [:edit, :update, :destroy]
+  post '/posts/:id/comment_create' => 'posts#comment_create'
+  get '/' => 'mypage#test'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

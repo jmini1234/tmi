@@ -1,4 +1,19 @@
 <h1><%=@post.id %>번째 글</h1>
 <p>제목 : <%=@post.title %></p>
 <p>내용 : <%=@post.content %></p>
+----------------test------------------
+<%= form_for Comment.new, url: post_comments_path(@post.id) do |f| %>
+  <%= f.label :content, '댓글작성하기: ' %>
+  <%= f.text_field :content %>
+  <%= f.submit "댓글 작성" %>
+<% end %>
+--------------------------------------
+</br>
+<% @post.comments.each do |c| %>
+  <%= c.user_id %>번 USER : <%= c.content %>
+  <% if c.user_id==current_user.id %>
+   <%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  </br>
+<% end %>
 <a href="/posts">뒤로</a>

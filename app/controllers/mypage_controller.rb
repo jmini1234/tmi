@@ -16,4 +16,8 @@ class MypageController < ApplicationController
   def setting
 
   end
+
+  def test
+
+  end
 end
