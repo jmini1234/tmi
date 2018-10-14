@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/mypage' => 'mypage#my_post'
   get '/mypage/new_news:users_id' => 'mypage#new_news'
-  get '/mypage/save_post:users_id' => 'mypage#save_post'
+  get '/mypage/bookmark:users_id' => 'mypage#bookmark'
   get '/mypage/setting:users_id' => 'mypage#setting'
 
   resources :posts do
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   resources :comments, only: [:edit, :update, :destroy]
   post '/posts/:id/comment_create' => 'posts#comment_create'
-  get '/' => 'mypage#test'
+  get '/' => 'mypage#setting'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

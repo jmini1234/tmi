@@ -3,7 +3,7 @@ class MypageController < ApplicationController
     @posts = Post.all
   end
 
-  def save_post
+  def bookmark
     @posts = Post.all
     @bookmarks = Bookmark.all
 
