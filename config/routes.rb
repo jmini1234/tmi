@@ -13,8 +13,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
   resources :comments, only: [:edit, :update, :destroy]
-  post '/posts/:id/comment_create' => 'posts#comment_create'
-  get '/' => 'mypage#setting'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
