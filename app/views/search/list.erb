@@ -6,6 +6,7 @@
     <p><%= post.id %>번 째 글입니당</p>
     <p>제목 : <%= post.title %></p>
     <p>내용 : <%= post.content %></p>
+    <p>해시태그 : <%= post.hashtag %></p>
     <% end %>
 <% else %>
  <p><%= "#{@query} 을(를) 포함한 검색 결과가 없습니다"%></p>
