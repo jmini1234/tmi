@@ -1,10 +1,5 @@
-<%= current_user.id %>
+<%= current_user.id %> <br>
 <% @bookmarks.each do |bookmark| %>
-      <%= bookmark.post_id %></br>
-      <% @posts.each do |p| %>
-      <% if p.id == bookmark.post_id %>
-      제목 : <%= p.title %> <br>
-      내용 : <%= p.content %> <br>
-      <% end %>
-      <% end %>
+      <%= bookmark.post.title %></br>
+      <%= bookmark.post.content %></br>
  <% end %>

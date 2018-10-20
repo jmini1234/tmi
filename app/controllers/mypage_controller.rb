@@ -5,7 +5,6 @@ class MypageController < ApplicationController
 
   def bookmark
     @bookmarks = Bookmark.where("user_id = ?", current_user.id)
-    @posts = Post.all
   end
 
   def bookmark_create
