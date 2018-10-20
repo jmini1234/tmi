@@ -1,4 +1,4 @@
 class Bookmark < ActiveRecord::Base
   has_many :users
-  belongs_to :post
+  has_many :post
 end
