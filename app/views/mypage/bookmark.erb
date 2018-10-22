@@ -1,11 +1,5 @@
-<ul>
+<%= current_user.id %> <br>
 <% @bookmarks.each do |bookmark| %>
-    <% if current_user.id == bookmark.user_id %>
-      <% bookmark.posts.each do |p| %>
-        <%=p.title%>
-        <%=p.content%>
-      </li>
-      <% end %>
-    <% end %>
+      <%= bookmark.post.title %></br>
+      <%= bookmark.post.content %></br>
  <% end %>
-</ul>
