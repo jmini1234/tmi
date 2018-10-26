@@ -3,9 +3,11 @@
 
 <% @posts.each do |p| %>
   <!-- <%= p.user_id %> -->
+  제목 : <%= p.title %></br>
+  작성자 : <%= p.user_id %>번 USER</br>
+  작성일 : <%= p.created_at %></br>
+  내용 : <%= p.content %></br>
+  태그 : <%= p.hashtag %></br>
+  <%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-  <% if current_user.id == p.user_id %>
-     제목 : <%= p.title %>
-     내용 : <%= p.content %>
-  <% end %>
 <% end %>

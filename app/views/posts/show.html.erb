@@ -1,6 +1,12 @@
-<h1><%=@post.id %>번째 글</h1>
-<p>제목 : <%=@post.title %></p>
-<p>내용 : <%=@post.content %></p>
+<h1><%= @post.id %>번째 글</h1>
+<p>제목 : <%= @post.title %></p>
+<p>작성자 : <%= @post.user_id %>번 USER</p>
+<p>작성일 : <%= @post.created_at %></p>
+<p>내용 : <%= @post.content %></p>
+<p>태그 : <%= @post.hashtag %></p>
+<% if @post.user_id == current_user.id %>
+  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></br>
+<% end %>
 ----------------test------------------
 <%= form_for Comment.new, url: post_comments_path(@post.id) do |f| %>
   <%= f.label :content, '댓글작성하기: ' %>
@@ -9,6 +15,7 @@
 <% end %>
 --------------------------------------
 </br>
+<%= @post.comments.count() %>개의 댓글 </br>
 <% @post.comments.each do |c| %>
   <%= c.user_id %>번 USER : <%= c.content %>
   <% if c.user_id==current_user.id %>
