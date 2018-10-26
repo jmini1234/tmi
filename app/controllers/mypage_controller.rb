@@ -1,6 +1,6 @@
 class MypageController < ApplicationController
   def my_post
-    @posts = Post.all
+    @posts = Post.where("user_id = ?", current_user.id)
   end
 
   def bookmark
@@ -14,6 +14,10 @@ class MypageController < ApplicationController
     @bookmark.save
 
     redirect_to :back
+  end
+
+  def bookmark_destroy
+    @bookmark.destroy
   end
 
   def new_news

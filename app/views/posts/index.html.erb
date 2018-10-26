@@ -7,7 +7,10 @@
   <p><%= post.created_at %></p>
   <p><%= post.updated_at %></p>
   <%= link_to 'Show', post %></td>
+  <% if post.user_id == current_user.id%>
   <%= link_to 'Edit', edit_post_path(post) %></td>
-  <a href="/mypage/<%= post.id %>/bookmark_create">Bookmark</a>
   <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  
+
 <% end %>
