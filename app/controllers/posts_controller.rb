@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   # view 있는 것
@@ -24,7 +25,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
