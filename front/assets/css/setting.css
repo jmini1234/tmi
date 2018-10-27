@@ -1,0 +1,38 @@
+.nav-lower-section {
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.user-wrapper {
+    background-color: #f0f0f0;
+    height: calc(100vh - 120px);
+    overflow: auto;
+}
+
+i#far-edit {
+    margin-left: 16px;
+}
+
+.user-name {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 29px 30px 27px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.user-detail {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    border: none;
+    margin-bottom: 1px;
+    background-color: #fff;
+    padding: 15px 30px;
+}
+
+.user-detail>i{
+    float: right;
+    margin-top: 2px;
+}

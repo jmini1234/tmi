@@ -1,0 +1,36 @@
+.newsFeed-content{
+    position: relative;
+    margin-bottom: 3px;
+    background-color: #fff;
+    padding: 15px 15px 25px;
+}
+
+.content-title{
+    font-size: 18px;
+    font-weight: 500;
+    color: #4d4d4d;
+    padding: 10px;
+}
+.content-title>img{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.content-preview{
+    padding: 10px;
+    font-size: 14px;
+    color: #808080;
+
+}
+
+.content-timestamp{
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+    text-align: right;
+    font-size: 12px;
+    color: #808080;
+    font-weight: 300;
+}

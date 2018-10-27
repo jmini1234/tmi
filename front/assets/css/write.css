@@ -1,0 +1,40 @@
+.content-wrapper{
+	   height: 600px;
+
+}
+
+textarea.title, textarea.content,textarea.tag{
+    background-color: white;
+    width: 100%;
+    resize: none;
+    border:0;
+    font-size: 14px;
+    color: #f0f0f0;
+}
+textarea.title{
+	border-top: 3px solid #f0f0f0;
+	height: 50px;
+	padding:14px 40px;
+}
+ textarea.content{
+ 	border-top: 2px solid #f0f0f0;
+ 	padding:14px 40px;
+ 	height: 340px;
+ }
+
+ textarea.tag{
+ 	border-top: 2px solid #f0f0f0;
+ 	border-bottom: 2px solid #f0f0f0;
+
+ 	padding:14px 40px;
+ 	height: 50px;
+ }
+ button{
+ 	border: 0;
+ 	width: 100%;
+ 	text-align: center;
+ 	height: 50px;
+ 	cursor: pointer;
+ 	    font-size: 14px;
+ }
+
