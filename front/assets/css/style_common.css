@@ -58,9 +58,9 @@ body{
     outline: none;
     font-size: 18px;
     color: #4c4c4c;
-    padding: 15px;
+    padding: 15px 0;
     width: 20%;
-    margin: 0 2%;
+    margin: 0 1%;
 }
 .nav-lower-button-wrap > button.btn-selected{
     border-bottom: 3px solid #4e90ff;
