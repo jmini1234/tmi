@@ -10,6 +10,15 @@ body{
     border: 1px solid #808080;
     height: auto;
 }
+.back-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 15px;
+}
+.back-img{
+    width: 15px;
+}
 .nav-upper-section{
     height: 60px;
     background-color: #4e90ff;

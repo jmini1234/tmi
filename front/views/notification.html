@@ -6,30 +6,35 @@
     <meta charset="UTF-8">
     <title>TMI_Example</title>
 </head>
-<body>
-<nav>
+<body><nav>
     <div class="nav-upper-section">
         <img src="../assets/img/logo1.PNG">
         <div class="nav-upper-button-wrap">
-            <button>홈</button>
-            <button>글쓰기</button>
-            <button>MY</button>
+            <button class="write">
+                <img src="../assets/img/write.png">
+            </button>
+            <button>
+                <img src="../assets/img/user.png">
+            </button>
         </div>
     </div>
     <div class="nav-lower-section">
         <div class="nav-lower-button-wrap">
-            <button>내 글</button>
+            <button >내 글</button>
             <button>저장한 글</button>
-            <button class="btn-selected">새소식</button>
-            <button onclick="routeByBtn('setting')" type="button">설정</button>
+            <button class="btn-selected">알림</button>
+            <button>설정</button>
         </div>
     </div>
 </nav>
 <div class="content-wrapper" id="newsFeed">
     <div class="newsFeed-content">
         <div class="content-title">
-            <img src="../assets/img/newsFeed.png">
-            컨텐츠 제목
+            <img src="../assets/img/notice-icon.png">
+            알림 제목 <span class="date">09.15</span>
+            <span class="chevron-right">
+                <img src="../assets/img/chevron_right.png">
+            </span>
         </div>
         <div class="content-preview">
             미리보기텍스트가이만큼
@@ -37,15 +42,14 @@
             미리보기텍스트가이만큼
             미리보기텍스트가이만큼
         </div>
-        <div class="content-timestamp">
-            9.13
-        </div>
     </div>
-
     <div class="newsFeed-content">
         <div class="content-title">
-            <img src="../assets/img/newsFeed.png">
-            컨텐츠 제목
+            <img src="../assets/img/comment-icon.png">
+            notification_title <span class="date">09.15</span>
+            <span class="chevron-right">
+                <img src="../assets/img/chevron_right.png">
+            </span>
         </div>
         <div class="content-preview">
             미리보기텍스트가이만큼
@@ -53,61 +57,8 @@
             미리보기텍스트가이만큼
             미리보기텍스트가이만큼
         </div>
-        <div class="content-timestamp">
-            9.13
-        </div>
     </div>
 
-
-    <div class="newsFeed-content">
-        <div class="content-title">
-            <img src="../assets/img/newsFeed.png">
-            컨텐츠 제목
-        </div>
-        <div class="content-preview">
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-        </div>
-        <div class="content-timestamp">
-            9.13
-        </div>
-    </div>
-
-
-    <div class="newsFeed-content">
-        <div class="content-title">
-            <img src="../assets/img/newsFeed.png">
-            컨텐츠 제목
-        </div>
-        <div class="content-preview">
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-        </div>
-        <div class="content-timestamp">
-            9.13
-        </div>
-    </div>
-
-
-    <div class="newsFeed-content">
-        <div class="content-title">
-            <img src="../assets/img/newsFeed.png">
-            컨텐츠 제목
-        </div>
-        <div class="content-preview">
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-            미리보기텍스트가이만큼
-        </div>
-        <div class="content-timestamp">
-            9.13
-        </div>
-    </div>
 </div>
 
 </body>
