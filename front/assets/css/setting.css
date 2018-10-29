@@ -3,9 +3,12 @@
 }
 
 .user-wrapper {
-    background-color: #f0f0f0;
+    background-color: #e4e4e4;
     height: calc(100vh - 120px);
     overflow: auto;
+}
+.content-wrapper{
+  background-color: #e4e4e4;
 }
 
 i#far-edit {
@@ -20,7 +23,9 @@ i#far-edit {
     font-weight: 500;
     cursor: pointer;
 }
-
+.logout{
+  margin-top: 300px;
+}
 .user-detail {
     display: block;
     width: 100%;
