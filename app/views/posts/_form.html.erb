@@ -8,15 +8,10 @@
   <%= f.text_area :content %>
 </div>
 <div class="field">
-  <%= f.label :hashtag %> <br>v
+  <%= f.label :hashtag %> <br>
   <%= f.text_area :hashtag %>
 </div>
-
-  <div class="field">
-    <%= f.hidden_field :user_id, current_user.id %>
-    <%= %>
-  </div>
-
+  <%= f.hidden_field :user_id,value: current_user.id %>
 <div class="actions">
   <%= f.submit %>
 </div>
