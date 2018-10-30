@@ -1,6 +1,6 @@
-class PostsController < ApplicationController
+class Api::V1::PostsController < ApplicationController
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   # view 있는 것
@@ -68,5 +68,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, :hashtag, :user_id)
   end
-
 end

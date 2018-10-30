@@ -7,16 +7,16 @@
   <p><%= post.created_at %></p>
   <p><%= post.updated_at %></p>
   <%= link_to 'Show', post %></td>
-  <% if post.user_id == current_user.id%>
+  <%# if post.user_id == current_user.id%>
   <%= link_to 'Edit', edit_post_path(post) %></td>
   <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-  <% bookmark = Bookmark.where("post_id = #{post.id} AND user_id = #{current_user.id}") %>
-    <% if bookmark.exists? %>
-      <%= link_to 'BookmarkDestroy', "/mypage/#{post.id}/bookmark_destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% else %>
+  <%# end %>
+  <%# bookmark = Bookmark.where("post_id = #{post.id} AND user_id = #{current_user.id}") %>
+    <%# if bookmark.exists? %>
+      <%# link_to 'BookmarkDestroy', "/mypage/#{post.id}/bookmark_destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%# else %>
     <a href="/mypage/#{post.id}/bookmark_create">Bookmark</a>
-    <% end %>
+    <%# end %>
 
 
 <% end %>

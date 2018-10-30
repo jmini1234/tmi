@@ -22,6 +22,13 @@ Rails.application.routes.draw do
   delete 'mypage/:id/bookmark_destroy' => 'mypage#bookmark_destroy'
   get '/' => 'posts#index'
 
+  # api
+  namespace :api do
+    namespace :v1 do
+      resources :posts
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
