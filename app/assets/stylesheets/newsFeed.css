@@ -1,0 +1,39 @@
+.newsFeed-content{
+    position: relative;
+    margin-bottom: 3px;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.content-title{
+    padding: 10px;
+    font-size: 12px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.54);
+}
+.content-title>img{
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.content-preview{
+    padding: 10px 70px 10px 10px;
+    font-size: 14px;
+
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.87);
+
+}
+
+.date{
+    margin-left: 20px;
+}
+.chevron-right>img{
+    margin-top: 6px;
+    height: 16px;
+}
+.chevron-right{
+    float: right;
+}
