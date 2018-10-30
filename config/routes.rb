@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post '/posts/:id/comment_create' => 'posts#comment_create'
   get 'mypage/:id/bookmark_create' => 'mypage#bookmark_create'
   delete 'mypage/:id/bookmark_destroy' => 'mypage#bookmark_destroy'
-  get '/' => 'posts#index'
+  root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

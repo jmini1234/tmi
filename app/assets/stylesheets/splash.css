@@ -1,0 +1,13 @@
+.wrapper { 
+    width:600px; 
+    height:600px; 
+    text-align:center; 
+    vertical-align:middle;
+    display:table-cell;
+}
+.user-img { 
+    width:100%; 
+    height:50px; 
+    font-size: 40px;
+    display:inline-block;
+}
