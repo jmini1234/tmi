@@ -66,23 +66,3 @@
 
 </body>
 </html>
-
-
-<h1>게시판!</h1>
-<p><a href="/posts/new">글 작성하기</a></p>
-<% @posts.each do |post| %>
-  <p><%= post.id %>번 째 글입니당</p>
-  <p>제목 : <%= post.title %></p>
-  <p>내용 : <%= post.content %></p>
-  <p><%= post.created_at %></p>
-  <p><%= post.updated_at %></p>
-  <%= link_to 'Show', post %></td>
-  
-  <% bookmark = Bookmark.where("post_id = #{post.id} AND user_id = #{current_user.id}") %>
-    <% if bookmark.exists? %>
-      <%= link_to 'BookmarkDestroy', "/mypage/#{post.id}/#{current_user.id}/bookmark_destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% else %>
-    <%= link_to 'Bookmark', "/mypage/#{post.id}/bookmark_create", method: :post, data: { confirm: 'Are you sure?'} %>
-    <% end %>
-
-<% end %>
