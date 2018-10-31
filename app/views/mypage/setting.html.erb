@@ -30,41 +30,28 @@
           </div>
       </div>
   </nav>
-  
+
 <div class="content-wrapper">
     <div class="user">
         <div class="user-name">
-            자색호랑나비
+            <% if user_signed_in? %>
+              <%= current_user.nickname %>
+            <% else %>
+            <%end%>
         </div>
         <button type="button" class="user-detail">
             알림 ON
             <i class="fa fa-chevron-right"></i>
         </button>
         <button type="button" class="user-detail logout">
-            로그아웃
-
+            <% if user_signed_in? %>
+              <%= link_to('로그아웃', destroy_user_session_path, method: :delete) %>
+            <% else %>
+             <%= link_to('로그인', new_user_session_path)  %>
+            <% end %>
         </button>
     </div>
 </div>
 
 </body>
 </html>
-
-<h1>SETTING</h1>
-<p>준비 중...</p>
-<% if user_signed_in? %>
-  <%= current_user.nickname %>
-<% else %>
-<%end%>
---------------------------------------
-<% if user_signed_in? %>
-  <p><%= current_user.id %></p>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </li>
-<% else %>
-  <p>로그인 안 된 상태</p>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>
-  </li>
-<% end %>
