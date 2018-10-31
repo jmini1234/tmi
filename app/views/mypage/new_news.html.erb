@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style_common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/notice.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+<nav>
+    <div class="nav-upper-section">
+        <img src="../assets/img/logo1.PNG">
+        <div class="nav-upper-button-wrap">
+            <button class="write" onclick="location.href='/posts/new'">
+                <img src="../assets/img/write.png">
+            </button>
+            <button onclick = "location.href = '/mypage'">
+                <img src="../assets/img/user.png">
+            </button>
+        </div>
+    </div>
+    <div class="nav-lower-section">
+        <div class="nav-lower-button-wrap">
+            <button onclick = "location.href = '/mypage'">내가 쓴 글</button>
+            <button onclick = "location.href = '/mypage/bookmark/<%= current_user.id %> '">북마크</button>
+            <button class="btn-selected" onclick = "location.href = '/mypage/new_news'">알림</button>
+            <button onclick = "location.href = '/mypage/setting/<%= current_user.id %> '" >설정</button>
+        </div>
+    </div>
+</nav>
+
+<div class="content-wrapper">
+    <div class="notice-title-section">
+        <div class="notice-title">공지사항 제목</div>
+        <div class="notice-subtitle">수정중!<span>2018. 10. 13. 11:32</span></div>
+    </div>
+    <div class="notice-content">
+        공지사항에 대한 데이터베이스가 없어서 아직 코드 안짰는데 데이터베이스 만들면 금방짤듯
+        그리고 위에 설정 삐져나온거 보이십니까? 저거 프론트에서 길이제한 이런게 있어서 자리를 못잡은게 아닌가 싶습니다.
+        그리고 프론트 파일중에 noticeView.html 과 notification.html 이렇게 두개가 있는데 두개 같은거 같아서 (조금다른데 비슷해보임) noticeView를 썼습니다.
+    </div>
+</div>
+
+</body>
+</html>

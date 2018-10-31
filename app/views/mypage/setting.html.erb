@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style_common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/setting.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+  <nav>
+      <div class="nav-upper-section">
+          <img src="../assets/img/logo1.PNG">
+          <div class="nav-upper-button-wrap">
+              <button class="write" onclick="location.href='/posts/new'">
+                  <img src="../assets/img/write.png">
+              </button>
+              <button onclick = "location.href = '/mypage'">
+                  <img src="../assets/img/user.png">
+              </button>
+          </div>
+      </div>
+      <div class="nav-lower-section">
+          <div class="nav-lower-button-wrap">
+            <button onclick = "location.href = '/mypage'">내가 쓴 글</button>
+            <button onclick = "location.href = '/mypage/bookmark/<%= current_user.id %> '">북마크</button>
+            <button onclick = "location.href = '/mypage/new_news'">알림</button>
+            <button class="btn-selected" onclick = "location.href = '/mypage/setting/<%= current_user.id %> '" >설정</button>
+          </div>
+      </div>
+  </nav>
+  
+<div class="content-wrapper">
+    <div class="user">
+        <div class="user-name">
+            자색호랑나비
+        </div>
+        <button type="button" class="user-detail">
+            알림 ON
+            <i class="fa fa-chevron-right"></i>
+        </button>
+        <button type="button" class="user-detail logout">
+            로그아웃
+
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
+
+<h1>SETTING</h1>
+<p>준비 중...</p>
+<% if user_signed_in? %>
+  <%= current_user.nickname %>
+<% else %>
+<%end%>
+--------------------------------------
+<% if user_signed_in? %>
+  <p><%= current_user.id %></p>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  </li>
+<% else %>
+  <p>로그인 안 된 상태</p>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>

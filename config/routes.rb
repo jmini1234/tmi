@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/search/list' => 'search#list'
 
   get '/mypage' => 'mypage#my_post'
-  get '/mypage/new_news/:users_id' => 'mypage#new_news'
+  get '/mypage/new_news' => 'mypage#new_news'
   get '/mypage/bookmark/:users_id' => 'mypage#bookmark'
   get '/mypage/setting/:users_id' => 'mypage#setting'
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   post '/posts/:id/comment_create' => 'posts#comment_create'
   post 'mypage/:id/bookmark_create' => 'mypage#bookmark_create'
-  delete 'mypage/:id/bookmark_destroy' => 'mypage#bookmark_destroy'
+  delete 'mypage/:id/:user_id/bookmark_destroy' => 'mypage#bookmark_destroy'
   root 'posts#index'
 
   namespace :api do

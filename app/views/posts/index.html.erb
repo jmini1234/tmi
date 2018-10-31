@@ -53,7 +53,7 @@
               <div class="content-preview-text">
                 <%= post.content %>
               </div>
-              <div class="content-preview-timestamp">자색호랑나비 <%= post.created_at.strftime("%m.%d") %></div>
+              <div class="content-preview-timestamp"><%= post.user_id %> <%= post.created_at.strftime("%m.%d") %></div>
           </div>
           <div class="content-hashtag"><%=post.hashtag %></div>
           <div class="content-reply">
@@ -80,7 +80,7 @@
   
   <% bookmark = Bookmark.where("post_id = #{post.id} AND user_id = #{current_user.id}") %>
     <% if bookmark.exists? %>
-      <%= link_to 'BookmarkDestroy', "/mypage/#{post.id}/bookmark_destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'BookmarkDestroy', "/mypage/#{post.id}/#{current_user.id}/bookmark_destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
     <% else %>
     <%= link_to 'Bookmark', "/mypage/#{post.id}/bookmark_create", method: :post, data: { confirm: 'Are you sure?'} %>
     <% end %>
