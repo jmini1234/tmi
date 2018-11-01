@@ -1,0 +1,11 @@
+<ul>
+<% @likes.each do |like| %>
+    <% if current_user.id == like.user_id %>
+      <% like.posts.each do |p| %>
+        <%=p.title%>
+        <%=p.content%>
+      </li>
+      <% end %>
+    <% end %>
+ <% end %>
+</ul>

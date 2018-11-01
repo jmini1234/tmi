@@ -1,7 +1,7 @@
 json.user current_user
 json.posts @posts.each do |p|
     json.id p.id
-    json.title p.title 
+    json.title p.title
     json.content p.content
     json.hashtag p.hashtag
     json.created_at p.created_at.to_s[5..9].gsub("-",".")
