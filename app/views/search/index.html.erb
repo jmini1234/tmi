@@ -13,16 +13,13 @@
 
 <div class="content-wrapper">
 
-     <div class="content-reply-write">
-            <div class="content-reply-input">
+            <div class="search-input">
                   <div class="icon_search">
-                    <%= image_tag ( "search.png" ) , :style=>"width:20px" %>
                   <%= form_tag("/search/list", :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :query, params[:query], placeholder: "Search Posts" %>
-                    <%= submit_tag "Search" %>
+                    <%= text_field_tag :query, params[:query], placeholder: "내용으로 검색하기" %>
+                    <%= submit_tag "검색" %>
                   <% end %>
             </div>
-        </div>
         <div class="content"></div>
 </div>
 

@@ -1,8 +1,57 @@
-<%= current_user.id %> <br>
-<% @bookmarks.each do |bookmark| %>
-      제목 : <%= bookmark.post.title %></br>
-      작성자 : <%= bookmark.post.user_id %>번 USER</br>
-      작성일 : <%= bookmark.post.created_at %></br>
-      내용 : <%= bookmark.post.content %></br>
-      태그 : <%= bookmark.post.hashtag %></br>
- <% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style_common.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/search-only.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/search.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <title>TMI_Example</title>
+</head>
+<body>
+<nav>
+  <div class="nav-upper-section">
+    <%=image_tag ("logo1.PNG") %>
+    <div class="nav-upper-button-wrap">
+      <button class="write" onclick="location.href='/posts/new'">
+        <%= image_tag ("write.png") %>
+      </button>
+      <button onclick = "location.href = '/mypage'">
+        <%= image_tag ("user.png") %>
+      </button>
+    </div>
+  </div>
+  <div class="nav-lower-section">
+    <div class="nav-lower-button-wrap">
+      <button class="btn-selected" onclick = "location.href = '/mypage'">내가 쓴 글</button>
+      <button onclick = "location.href = '/mypage/bookmark/<%= current_user.id %> '">북마크</button>
+      <button onclick = "location.href = '/mypage/setting/<%= current_user.id %> '" >설정</button>
+    </div>
+  </div>
+</nav>
+
+<div class="content-wrapper">
+  <!--SINGLE ELEMENT-->
+  <% @bookmarks.each do |bookmark| %>
+    <div class="content-element">
+      <div class="content-preview">
+        <div class="content-preview-title">
+          제목 : <%= bookmark.post.title %>
+        </div>
+        <div class="content-preview-text">
+          <%= bookmark.post.content %>
+        </div>
+        <div class="content-preview-timestamp"><%= bookmark.post.user_id %> <%= bookmark.post.updated_at %></div>
+      </div>
+      <div class="content-hashtag"><%= bookmark.post.hashtag %> </div>
+      <div class="content-reply">
+        <%= image_tag ("comment.png") %><%= bookmark.post.comments.count %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</body>
+</html>
+

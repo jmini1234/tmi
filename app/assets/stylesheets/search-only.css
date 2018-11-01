@@ -1,6 +1,12 @@
 .content-element{
     background-color: #eeeeee;
 }
+
+.content-element.show-wrap{
+    height: calc(100vh - 50px);
+    position: relative;
+    margin-bottom: 0;
+}
 .search-only {
     display: block;
     width: 100%;
@@ -22,9 +28,11 @@
 }
 
 .content-reply-write{
-  position: relative;
+  position: absolute;
+    bottom: 0;
+
     padding: 12px 20px;
-    width: 500px;
+    width: 100%;
     height: 80px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
     background-color: #4e90ff;

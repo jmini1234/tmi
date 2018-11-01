@@ -32,7 +32,7 @@ body{
 }
 .nav-upper-button-wrap{
     float: right;
-    padding: 12px 10px;
+    padding: 6px 10px 3px;
 
 }
 .nav-upper-button-wrap > button{
@@ -54,7 +54,7 @@ body{
     cursor: pointer;
     outline: none;
 
-    padding: 8px;
+    padding: 12px 0 4px;
 }
 .nav-upper-button-wrap>button.write {
     opacity: 0.6;
@@ -77,8 +77,8 @@ body{
     font-size: 18px;
     color: #4c4c4c;
     padding: 15px 0;
-    width: 18%;
-    margin: 0 1%;
+    width: 22%;
+    margin: 0 3%;
 }
 .nav-lower-button-wrap > button.btn-selected{
     border-bottom: 3px solid #4e90ff;
