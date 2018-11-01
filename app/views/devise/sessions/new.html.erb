@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/assets/style_common.css">
-    <link rel="stylesheet" type="text/css" href="/assets/login.css">
-
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <title>TMI_Example</title>
-</head>
 <body>
 	<div class="wrapper" style="background:url('/assets/bg.png')">
 		<div class="user-img">
-      <%= image_tag ( "logo.png" ) %>
+      <%= image_tag ( "logo2.png" ), width:200 %>
 		</div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="icon_id"><%= image_tag ( "icon_id.png") , :style=>"width:20px"%>
