@@ -43,7 +43,7 @@
         <% @comments.each do |c| %>
         <div class="content-reply-list">
             <div class="content-reply-name">
-                <%= c.user_id %>
+                <%= c.user.nickname %>
             </div>
             <div class="content-reply-text">
               <%= c.content %>
