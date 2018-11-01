@@ -26,9 +26,10 @@ class Api::V1::PostsController < Api::V1::ApplicationController
   def index
     @posts = Post.all
   end
-  
+
 
   def show
+    @comments = Comment.where("post_id = ?", @post.id)
     @comment = Comment.new
   end
 
@@ -39,7 +40,7 @@ class Api::V1::PostsController < Api::V1::ApplicationController
       if @post.save
         render :show, status: :created, location: @post
       else
-        render json: @post.errors, status: :unprocessable_entity 
+        render json: @post.errors, status: :unprocessable_entity
       end
     end
   end

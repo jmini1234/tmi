@@ -1,4 +1,5 @@
 json.user current_user
+json.query @query
 json.posts @posts.each do |p|
     json.id p.id
     json.title p.title

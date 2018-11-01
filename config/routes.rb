@@ -31,6 +31,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :posts
+      get '/search', :to => 'search#index'
+      get '/search/list', :to => 'search#list'
+      get '/mypage' => 'mypage#my_post'
+      get '/mypage/bookmark/:users_id' => 'mypage#bookmark'
+      get '/mypage/setting/:users_id' => 'mypage#setting'
       devise_scope :user do
         post "/sign_in", :to => 'sessions#create'
         post "/sign_up", :to => 'registrations#create'
