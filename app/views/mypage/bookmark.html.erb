@@ -12,7 +12,7 @@
 <body>
 <nav>
   <div class="nav-upper-section">
-    <%=image_tag ("logo1.PNG") %>
+    <%=image_tag ("logo1.png"), class: "logo-img" %>
     <div class="nav-upper-button-wrap">
       <button class="write" onclick="location.href='/posts/new'">
         <%= image_tag ("write.png") %>
@@ -24,8 +24,8 @@
   </div>
   <div class="nav-lower-section">
     <div class="nav-lower-button-wrap">
-      <button class="btn-selected" onclick = "location.href = '/mypage'">내가 쓴 글</button>
-      <button onclick = "location.href = '/mypage/bookmark/<%= current_user.id %> '">북마크</button>
+      <button onclick = "location.href = '/mypage'">내가 쓴 글</button>
+      <button class="btn-selected" onclick = "location.href = '/mypage/bookmark/<%= current_user.id %> '">북마크</button>
       <button onclick = "location.href = '/mypage/setting/<%= current_user.id %> '" >설정</button>
     </div>
   </div>

@@ -23,7 +23,6 @@
         <div class="content-preview">
             <div class="content-title">
               <%= @post.title %>
-              <button onclick = "location.href ='/search'">
             </div>
             <div class="content-timestamp"><%= @post.user_id %>여기유저닉네임넣어야함 <%= @post.created_at.strftime("%m.%d") %></div>
             <div class="content-text">
@@ -34,9 +33,9 @@
         <div class="content-reply">
             <i class="fa fa-clipboard-list"></i>&nbsp; <%= @post.comments.count %>
             <% if current_user.is_Bookmark?(@post) %>
-            <%= link_to "좋아요 취소", post_bookmark_path(@post), method: "post" %>
+            <%= link_to image_tag("bookmark_no.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-none" %>
             <% else %>
-            <%= link_to "좋아요", post_bookmark_path(@post), method: "post" %>
+            <%= link_to image_tag("bookmark_yes.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-yes" %>
             <% end %>
 
         </div>
