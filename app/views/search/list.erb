@@ -83,29 +83,28 @@
     }
 
 </style>
+
 <body>
-<nav>
-    <div class="nav-upper-section">
-        <img src="../assets/img/logo1.PNG">
-        <div class="nav-upper-button-wrap">
-            <button>홈</button>
-            <a href="/posts/new"><button type="button">글쓰기</button></a>
-            <button>MY</button>
-        </div>
-    </div>
-    <div class="nav-lower-section">
-        <div class="nav-lower-button-wrap">
-            <button>내 글</button>
-            <button>저장한 글</button>
-            <button class="btn-selected">새소식</button>
-            <button>설정</button>
-        </div>
-    </div>
-</nav>
-</nav>
+
+  <div class="content-wrapper">
+
+       <div class="content-reply-write">
+              <div class="content-reply-input">
+                    <div class="icon_search">
+                      <%= image_tag ( "search.png" ) , :style=>"width:20px" %>
+                    <%= form_tag("/search/list", :method => "get", id: "search-form") do %>
+                      <%= text_field_tag :query, params[:query], placeholder: "Search Posts" %>
+                      <%= submit_tag "Search" %>
+                    <% end %>
+              </div>
+          </div>
+          <div class="content"></div>
+  </div>
+
 <div class="content-wrapper">
     <!--SINGLE ELEMENT-->
 
+<%= @posts.count %>건
     <% @posts.each do |post| %>
     <div class="content-element" onclick="show()">
         <div class="content-preview">
@@ -115,11 +114,11 @@
             <div class="content-preview-text">
                 <%= post.content %>
             </div>
-            <div class="content-preview-timestamp">자색호랑나비 <%= post.created_at %></div>
+            <div class="content-preview-timestamp"><%= post.user_id %> <%= post.created_at %></div>
         </div>
-        <div class="content-hashtag">#강남 #주차 #주말 #외출 </div>
+        <div class="content-hashtag"> <%= post.hashtag %> </div>
         <div class="content-reply">
-            <i class="fa fa-clipboard-list"></i>&nbsp; 10
+            <i class="fa fa-clipboard-list"></i>&nbsp;
         </div>
     </div>
     <% end %>
