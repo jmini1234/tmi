@@ -1,8 +1,0 @@
-<%= current_user.id %> <br>
-<% @bookmarks.each do |bookmark| %>
-      제목 : <%= bookmark.post.title %></br>
-      작성자 : <%= bookmark.post.user_id %>번 USER</br>
-      작성일 : <%= bookmark.post.created_at %></br>
-      내용 : <%= bookmark.post.content %></br>
-      태그 : <%= bookmark.hashtag %></br>
- <% end %>

@@ -56,7 +56,7 @@
 
 .content-reply-list{
     padding: 10px 30px;
-    border-bottom: 5px solid #d8d8d8;
+    border-bottom: 2px solid #d8d8d8;
 }
 .content-reply-name{
     padding: 5px 0;
@@ -69,7 +69,7 @@
 }
 
 .content-reply-write{
-    padding: 10px 30px;
+    padding: 20px 30px;
 }
 .content-reply-write-label{
     padding: 10px 0;

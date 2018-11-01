@@ -15,7 +15,7 @@
 
 }
 .content-reply-input{
-
+    margin-top: 0;
 }
 .icon_search > img {
   position: absolute;
@@ -23,7 +23,7 @@
   right: 40px;
 }
 div.icon_search{
-  padding: 8px 20px;
+  padding: 10px 20px;
       position: relative;
 }
 .content-reply-input>input{
@@ -38,4 +38,14 @@ div.icon_search{
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
         border: solid 1px #ffffff;
         margin: 0 auto;
+}
+
+.logo-img{
+    height: 32px;
+    margin: 10px 10px 0 20px;
+}
+
+.bookmark-img-link{
+    height: 20px;
+    float: right;
 }

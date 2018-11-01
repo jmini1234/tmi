@@ -1,6 +1,11 @@
 .wrapper{
   background-color: #4e90ff;
 }
+
+.user-img {
+    margin: 100px 0 30px;
+}
+
 .join{
   color: #fff;
 }
@@ -18,23 +23,21 @@ form{
 
 .icon_pwd_ > img{
   position: absolute;
-  left: 120px;
+  left: 60px;
   top:160px;
 }
 .icon_pwd2_  > img{
   position: absolute;
-  left: 120px;
+  left: 60px;
   top:240px;
 }
 
 .login_button{
   background-color: transparent;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin: 30px auto 0;
   display:block;
   width: 180px;
   height: 60px;
-  border: none;
   cursor: pointer;
   outline: none;
   font-size: 12px;
