@@ -1,26 +1,69 @@
-<h1><%= @post.id %>번째 글</h1>
-<p>제목 : <%= @post.title %></p>
-<p>작성자 : <%= @post.user_id %>번 USER</p>
-<p>작성일 : <%= @post.created_at %></p>
-<p>내용 : <%= @post.content %></p>
-<p>태그 : <%= @post.hashtag %></p>
-<% if @post.user_id == current_user.id %>
-  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></br>
-<% end %>
-----------------test------------------
-<%= form_for Comment.new, url: post_comments_path(@post.id) do |f| %>
-  <%= f.label :content, '댓글작성하기: ' %>
-  <%= f.text_field :content %>
-  <%= f.submit "댓글 작성" %>
-<% end %>
---------------------------------------
-</br>
-<%= @post.comments.count() %>개의 댓글 </br>
-<% @post.comments.each do |c| %>
-  <%= c.user_id %>번 USER : <%= c.content %>
-  <% if c.user_id==current_user.id %>
-   <%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-  </br>
-<% end %>
-<a href="/posts">뒤로</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/postView.css">
+    <link rel="stylesheet" type="text/css" href="/assets/style_common.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+<nav>
+    <div class="nav-upper-section">
+        <button onclick="location.href='/posts'" class="back-button">
+          <%= image_tag ( "chevron_left.png" ) , :class=>"back-img"%>
+        </button>
+    </div>
+</nav>
+<div class="contenta-wrapper">
+    <!--SINGLE ELEMENT-->
+    <div class="content-element">
+        <div class="content-preview">
+            <div class="content-title">
+              <%= @post.title %>
+              <span class="search-text"></span>
+            </div>
+            <div class="content-timestamp"><%= @post.user_id %>여기유저닉네임넣어야함 <%= @post.created_at.strftime("%m.%d") %></div>
+            <div class="content-text">
+              <%= @post.content %>
+            </div>
+        </div>
+        <div class="content-hashtag"> <%= @post.hashtag %> </div>
+        <div class="content-reply">
+            <i class="fa fa-clipboard-list"></i>&nbsp; <%= @post.comments.count %>
+            <span class="bookmark"><i class="fa fa-bookmark"></i></span>
+        </div>
+        <% @comments.each do |c| %>
+        <div class="content-reply-list">
+            <div class="content-reply-name">
+                <%= c.user_id %>
+            </div>
+            <div class="content-reply-text">
+              <%= c.content %>
+            </div>
+        </div>
+        <% end %>
+        <div class="content-reply-write">
+        
+            <div class="content-reply-write-name">
+
+            </div>
+            <div class="content-reply-input">
+              <%= form_for Comment.new, url: post_comments_path(@post.id) do |f| %>
+                <%= f.text_field :content, placeholder:"댓글을 입력하세요"%>
+                <%= f.hidden_field :post_id, value: @post.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <button class="submit" type="submit">저장</button>
+              <% end %>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../assets/javascripts/routeByButton.js"></script>
+
+</html>

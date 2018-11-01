@@ -1,22 +1,68 @@
-<h1>게시판!</h1>
-<p><a href="/posts/new">글 작성하기</a></p>
-<% @posts.each do |post| %>
-  <p><%= post.id %>번 째 글입니당</p>
-  <p>제목 : <%= post.title %></p>
-  <p>내용 : <%= post.content %></p>
-  <p><%= post.created_at %></p>
-  <p><%= post.updated_at %></p>
-  <%= link_to 'Show', post %></td>
-  <% if post.user_id == current_user.id%>
-  <%= link_to 'Edit', edit_post_path(post) %></td>
-  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/search.css">
+    <link rel="stylesheet" type="text/css" href="/assets/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/style_common.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+<nav>
+  <div class="nav-section">
+      <%= image_tag ( "logo1.PNG" ) %>
+      <div class="nav-upper-button-wrap">
+          <button class="write" onclick="location.href='/posts/new'">
+            <%= image_tag ( "write.png" ) %>
+          </button>
+          <button onclick="location.href='/mypage'">
+            <%= image_tag ( "user.png" ) %>
+          </button>
+      </div>
+
+
+        <div class="content-reply-input">
+          <div class="icon_search">
+            <%= image_tag ( "search.png" ) , :style=>"width:20px" %>
+            <%= form_tag("/search/list", :method => "get") do %>
+              <%= text_field_tag :nil, params[:query], class: 'search', placeholder: ' 검색' %>
+              <%= submit_tag "Search" %>
+            <% end %>
+            <input type="search" class="search" placeholder="&nbsp; 검색">
+          </div>
+        </div>
+
+  </div>
+
+</nav>
+
+
+
+<div class="content-wrapper">
+    <!--SINGLE ELEMENT-->
+  <% @posts.each do |post| %>
+    <a href="/posts/<%=post.id%>" style="text-decoration: none;">
+      <div class="content-element">
+          <div class="content-preview">
+              <div class="content-preview-title">
+                <%= post.title %>
+                  <!-- 강남역 인근 <span class="search-text">주말 주차 장소</span> 추천 -->
+              </div>
+              <div class="content-preview-text">
+                <%= post.content %>
+              </div>
+              <div class="content-preview-timestamp"><%= post.user_id %> <%= post.created_at.strftime("%m.%d") %></div>
+          </div>
+          <div class="content-hashtag"><%=post.hashtag %></div>
+          <div class="content-reply">
+              <i class="fa fa-clipboard-list"></i>&nbsp; <%= post.comments.count %>
+          </div>
+      </div>
+    </a>
   <% end %>
-  <% bookmark = Bookmark.where("post_id = #{post.id} AND user_id = #{current_user.id}") %>
-    <% if bookmark.exists? %>
-      <%= link_to 'BookmarkDestroy', "/mypage/#{post.id}/bookmark_destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% else %>
-    <a href="/mypage/#{post.id}/bookmark_create">Bookmark</a>
-    <% end %>
+</div>
 
-
-<% end %>
+</body>
+</html>

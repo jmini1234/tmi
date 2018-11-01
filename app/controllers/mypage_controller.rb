@@ -17,7 +17,9 @@ class MypageController < ApplicationController
   end
 
   def bookmark_destroy
+    @bookmark = Bookmark.where(post_id: :id, user_id: :user_id)
     @bookmark.destroy
+    redirect_to '/'
   end
 
   def new_news
