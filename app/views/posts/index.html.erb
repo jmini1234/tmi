@@ -13,7 +13,9 @@
 <body>
 <nav>
   <div class="nav-section">
-    <%=image_tag ("logo1.png"), class: "logo-img" %>
+    <%= link_to "/" do %>
+    <%= image_tag ("logo1.png"), class: "logo-img" %>
+    <% end%>
     <div class="nav-upper-button-wrap">
           <button class="write" onclick="location.href='/posts/new'">
             <%= image_tag ( "write.png" ) %>
