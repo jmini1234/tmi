@@ -23,7 +23,7 @@
         <div class="content-preview">
             <div class="content-title">
               <%= @post.title %>
-              <span class="search-text"></span>
+              <button onclick = "location.href ='/search'">
             </div>
             <div class="content-timestamp"><%= @post.user_id %>여기유저닉네임넣어야함 <%= @post.created_at.strftime("%m.%d") %></div>
             <div class="content-text">
@@ -33,7 +33,12 @@
         <div class="content-hashtag"> <%= @post.hashtag %> </div>
         <div class="content-reply">
             <i class="fa fa-clipboard-list"></i>&nbsp; <%= @post.comments.count %>
-            <span class="bookmark"><i class="fa fa-bookmark"></i></span>
+            <% if current_user.is_Bookmark?(@post) %>
+            <%= link_to "좋아요 취소", post_bookmark_path(@post), method: "post" %>
+            <% else %>
+            <%= link_to "좋아요", post_bookmark_path(@post), method: "post" %>
+            <% end %>
+
         </div>
         <% @comments.each do |c| %>
         <div class="content-reply-list">
@@ -46,7 +51,7 @@
         </div>
         <% end %>
         <div class="content-reply-write">
-        
+
             <div class="content-reply-write-name">
 
             </div>
@@ -64,6 +69,6 @@
 </div>
 
 </body>
-<script src="../assets/javascripts/routeByButton.js"></script>
+<!-- <script src="../assets/javascripts/routeByButton.js"></script> -->
 
 </html>

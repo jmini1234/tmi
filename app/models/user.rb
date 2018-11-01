@@ -7,4 +7,11 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   has_many :posts
   has_many :comments
+
+  def is_Bookmark?(post)
+     Bookmark.find_by(user_id: self.id, post_id: post.id).present?
+ end
+
+
+
 end
