@@ -24,7 +24,7 @@
             <div class="content-title">
               <%= @post.title %>
             </div>
-            <div class="content-timestamp"><%= @post.user_id %>여기유저닉네임넣어야함 <%= @post.created_at.strftime("%m.%d") %></div>
+            <div class="content-timestamp"><%= @user.nickname %> <%= @post.created_at.strftime("%m.%d") %></div>
             <div class="content-text">
               <%= @post.content %>
             </div>
@@ -42,7 +42,7 @@
         <% @comments.each do |c| %>
         <div class="content-reply-list">
             <div class="content-reply-name">
-                <%= c.user_id %>
+                <%= c.user.nickname %>
             </div>
             <div class="content-reply-text">
               <%= c.content %>

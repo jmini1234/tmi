@@ -17,7 +17,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = Comment.where("post_id = ?", @post.id)
+    @user = User.find(@post.user_id)
+    @comments = Comment.where("post_id = ?",@post.id)
     @comment = Comment.new
   end
 
@@ -26,18 +27,37 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post = Post.new(post_params)
-    @post.save
-    redirect_to @post
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status:
+            :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @post.update(post_params)
-    @post.saveredirect_to @post
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status:
+            :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_url
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
 

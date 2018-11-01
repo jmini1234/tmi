@@ -37,12 +37,12 @@
     <div class="content-element">
       <div class="content-preview">
         <div class="content-preview-title">
-          제목 : <%= bookmark.post.title %>
+        <%= bookmark.post.title %>
         </div>
         <div class="content-preview-text">
           <%= bookmark.post.content %>
         </div>
-        <div class="content-preview-timestamp"><%= bookmark.post.user_id %> <%= bookmark.post.updated_at %></div>
+        <div class="content-preview-timestamp"><%= bookmark.post.user.nickname %> <%= bookmark.post.updated_at %></div>
       </div>
       <div class="content-hashtag"><%= bookmark.post.hashtag %> </div>
       <div class="content-reply">
@@ -54,4 +54,3 @@
 
 </body>
 </html>
-

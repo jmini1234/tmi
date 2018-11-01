@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/assets/search.css">
@@ -50,7 +51,7 @@
               <div class="content-preview-text">
                 <%= post.content %>
               </div>
-              <div class="content-preview-timestamp"><%= post.user_id %> <%= post.created_at.strftime("%m.%d") %></div>
+              <div class="content-preview-timestamp"><%= post.user.nickname %> <%= post.created_at.strftime("%m.%d") %></div>
           </div>
           <div class="content-hashtag"><%=post.hashtag %></div>
           <div class="content-reply">
