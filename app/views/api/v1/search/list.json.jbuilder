@@ -1,6 +1,7 @@
-json.user current_user
-json.query @query
-json.posts @posts.each do |p|
+if current_user
+  json.user current_user
+  json.query @query
+  json.posts @posts.each do |p|
     json.id p.id
     json.title p.title
     json.content p.content
@@ -12,4 +13,8 @@ json.posts @posts.each do |p|
         bookmark = Bookmark.where(user_id: current_user.id,post_id: p.id).exists?
         json.bookmark bookmark
     end
+  end
+else
+  json.errorMessage "Authentication failed"
+  json.errorCode "401"
 end

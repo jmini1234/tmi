@@ -1,14 +1,17 @@
-json.user current_user
-json.posts @bookmarks.each do |b|
-    json.id b.id
-    json.title b.title
-    json.content b.content
-    json.hashtag b.hashtag
-    json.created_at b.created_at.to_s[5..9].gsub("-",".")
-    json.author b.user.nickname
-    json.comment_count b.comments.count
-    if current_user
-        bookmark = Bookmark.where(user_id: current_user.id,post_id: b.id).exists?
-        json.bookmark bookmark
-    end
+if current_user
+  json.user current_user
+  json.bookmarks @bookmarks.each do |b|
+    json.id b.post.id
+    json.title b.post.title
+    json.content b.post.content
+    json.hashtag b.post.hashtag
+    json.created_at b.post.created_at.to_s[5..9].gsub("-",".")
+    json.author b.post.user.nickname
+    json.comment_count b.post.comments.count
+    bookmark = Bookmark.where(user_id: current_user.id, post_id: b.post_id).exists?
+    json.bookmark bookmark
+  end
+else
+  json.errorMessage "Authentication failed"
+  json.errorCode "401"
 end
