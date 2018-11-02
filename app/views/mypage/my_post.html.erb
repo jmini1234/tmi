@@ -36,6 +36,7 @@
 <div class="content-wrapper">
             <!--SINGLE ELEMENT-->
     <% @posts.each do |post| %>
+        <a href="/posts/<%=post.id%>" style="text-decoration: none;">
     <div class="content-element">
         <div class="content-preview">
             <div class="content-preview-title">

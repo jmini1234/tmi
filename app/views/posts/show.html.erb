@@ -33,9 +33,9 @@
         <div class="content-reply">
             <i class="fa fa-clipboard-list"></i>&nbsp; <%= @post.comments.count %>
             <% if current_user.is_Bookmark?(@post) %>
-            <%= link_to image_tag("bookmark_no.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-none" %>
+            <%= link_to image_tag("bookmark_yes.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-none" %>
             <% else %>
-            <%= link_to image_tag("bookmark_yes.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-yes" %>
+            <%= link_to image_tag("bookmark_no.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-yes" %>
             <% end %>
 
         </div>
