@@ -16,11 +16,11 @@
             <div class="search-input">
                   <div class="icon_search">
                   <%= form_tag("/search/list", :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :query, params[:query], placeholder: "내용으로 검색하기" %>
-                    <%= submit_tag "검색" %>
+                    <%= text_field_tag :query, params[:query], placeholder: "검색" %>
+                    <%= image_submit_tag  ( "search.png" ) , :style=>"width:20px" %>
                   <% end %>
             </div>
-        <div class="content"></div>
+        
 </div>
 
 </body>

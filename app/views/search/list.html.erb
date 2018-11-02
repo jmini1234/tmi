@@ -86,36 +86,18 @@
 
 <body>
 
-<nav>
-  <div class="nav-upper-section">
-  <%= link_to "/" do %>
-    <%= image_tag ("logo1.png"), class: "logo-img"%>
-    <% end %>
-    <div class="nav-upper-button-wrap">
-      <button class="write" onclick="location.href='/posts/new'">
-        <%= image_tag ("write.png") %>
-      </button>
-      <button onclick = "location.href = '/mypage'">
-        <%= image_tag ("user.png") %>
-      </button>
-    </div>
-  </div>
-
 </nav>
-  <div class="content-wrapper">
+<div class="content-wrapper search-bg">
 
-       <div class="content-reply-write">
-              <div class="content-reply-input">
-                    <div class="icon_search">
-                      <%= image_tag ( "search.png" ) , :style=>"width:20px" %>
-                    <%= form_tag("/search/list", :method => "get", id: "search-form") do %>
-                      <%= text_field_tag :query, params[:query], placeholder: "Search Posts" %>
-                      <%= submit_tag "Search" %>
-                    <% end %>
-              </div>
-          </div>
-          <div class="content"></div>
-  </div>
+            <div class="search-input">
+                  <div class="icon_search">
+                  <%= form_tag("/search/list", :method => "get", id: "search-form") do %>
+                    <%= text_field_tag :query, params[:query], placeholder: "검색" %>
+                    <%= image_submit_tag  ( "search.png" ) , :style=>"width:20px" %>
+                  <% end %>
+            </div>
+        
+</div>
 
 <div class="content-wrapper">
     <!--SINGLE ELEMENT-->
@@ -123,6 +105,7 @@
 검색 결과: <%= @posts.count %>건
 </div>
     <% @posts.each do |post| %>
+        <a href="/posts/<%=post.id%>" style="text-decoration: none;">
     <div class="content-element" onclick="show()">
         <div class="content-preview">
             <div class="content-preview-title">
