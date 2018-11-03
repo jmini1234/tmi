@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/assets/search.css">
@@ -12,8 +13,10 @@
 <body>
 <nav>
   <div class="nav-section">
-      <%= image_tag ( "logo1.PNG" ) %>
-      <div class="nav-upper-button-wrap">
+    <%= link_to "/" do %>
+    <%= image_tag ("logo1.png"), class: "logo-img" %>
+    <% end%>
+    <div class="nav-upper-button-wrap">
           <button class="write" onclick="location.href='/posts/new'">
             <%= image_tag ( "write.png" ) %>
           </button>
@@ -25,12 +28,9 @@
 
         <div class="content-reply-input">
           <div class="icon_search">
+            <button class="search-btn" onclick = "location.href ='/search'">
             <%= image_tag ( "search.png" ) , :style=>"width:20px" %>
-            <%= form_tag("/search/list", :method => "get") do %>
-              <%= text_field_tag :nil, params[:query], class: 'search', placeholder: ' 검색' %>
-              <%= submit_tag "Search" %>
-            <% end %>
-            <input type="search" class="search" placeholder="&nbsp; 검색">
+
           </div>
         </div>
 
@@ -53,7 +53,7 @@
               <div class="content-preview-text">
                 <%= post.content %>
               </div>
-              <div class="content-preview-timestamp"><%= post.user_id %> <%= post.created_at.strftime("%m.%d") %></div>
+              <div class="content-preview-timestamp"><%= post.user.nickname %> <%= post.created_at.strftime("%m.%d") %></div>
           </div>
           <div class="content-hashtag"><%=post.hashtag %></div>
           <div class="content-reply">

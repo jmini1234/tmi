@@ -12,7 +12,9 @@
 <body>
   <nav>
       <div class="nav-upper-section">
-          <%= image_tag ("logo1.PNG") %>
+      <%= link_to "/" do %>
+        <%=image_tag ("logo1.png"), class: "logo-img" %>
+        <% end %>
           <div class="nav-upper-button-wrap">
               <button class="write" onclick="location.href='/posts/new'">
                   <%= image_tag ("write.png") %>
@@ -41,7 +43,7 @@
             <%= f.text_area :hashtag, :class => "tag", placeholder: "태그" %>
         </div>
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <button class="submit" type="submit">게시하기</button>
+        <button class="submit" type="submit">+ 게시하기</button>
     </div>
 <% end %>
 </div>

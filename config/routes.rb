@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/search/list' => 'search#list'
 
   get '/mypage' => 'mypage#my_post'
-  get '/mypage/new_news' => 'mypage#new_news'
+  get '/mypage/new_news/:users_id' => 'mypage#new_news'
   get '/mypage/bookmark/:users_id' => 'mypage#bookmark'
   get '/mypage/setting/:users_id' => 'mypage#setting'
 
@@ -17,15 +17,16 @@ Rails.application.routes.draw do
     end
   resources :comments, only: [:edit, :update, :destroy]
 
-  post '/posts/:id/comment_create' => 'posts#comment_create'
-  post 'mypage/:id/bookmark_create' => 'mypage#bookmark_create'
-  delete 'mypage/:id/:user_id/bookmark_destroy' => 'mypage#bookmark_destroy'
-  root 'posts#index'
-
-  namespace :api do
-    resources :posts
+  resources :posts, except: [:show] do
+     post "/bookmark", to: "mypage#bookmark_toggle"
   end
 
+
+
+  post '/posts/:id/comment_create' => 'posts#comment_create'
+  # get 'mypage/:id/bookmark_create' => 'mypage#bookmark_create'
+  # delete 'mypage/:id/bookmark_destroy' => 'mypage#bookmark_destroy'
+  get '/' => 'posts#index'
 
   # api
   namespace :api do

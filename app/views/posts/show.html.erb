@@ -19,13 +19,12 @@
 </nav>
 <div class="contenta-wrapper">
     <!--SINGLE ELEMENT-->
-    <div class="content-element">
+    <div class="content-element show-wrap">
         <div class="content-preview">
             <div class="content-title">
               <%= @post.title %>
-              <span class="search-text"></span>
             </div>
-            <div class="content-timestamp"><%= @post.user_id %>여기유저닉네임넣어야함 <%= @post.created_at.strftime("%m.%d") %></div>
+            <div class="content-timestamp"><%= @user.nickname %> <%= @post.created_at.strftime("%m.%d") %></div>
             <div class="content-text">
               <%= @post.content %>
             </div>
@@ -33,12 +32,17 @@
         <div class="content-hashtag"> <%= @post.hashtag %> </div>
         <div class="content-reply">
             <i class="fa fa-clipboard-list"></i>&nbsp; <%= @post.comments.count %>
-            <span class="bookmark"><i class="fa fa-bookmark"></i></span>
+            <% if current_user.is_Bookmark?(@post) %>
+            <%= link_to image_tag("bookmark_yes.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-none" %>
+            <% else %>
+            <%= link_to image_tag("bookmark_no.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-yes" %>
+            <% end %>
+
         </div>
         <% @comments.each do |c| %>
         <div class="content-reply-list">
             <div class="content-reply-name">
-                <%= c.user_id %>
+                <%= c.user.nickname %>
             </div>
             <div class="content-reply-text">
               <%= c.content %>
@@ -46,24 +50,25 @@
         </div>
         <% end %>
         <div class="content-reply-write">
-        
+
             <div class="content-reply-write-name">
 
             </div>
-            <div class="content-reply-input">
+
+          <div class="reply-input-div">
               <%= form_for Comment.new, url: post_comments_path(@post.id) do |f| %>
                 <%= f.text_field :content, placeholder:"댓글을 입력하세요"%>
                 <%= f.hidden_field :post_id, value: @post.id %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
-                <button class="submit" type="submit">저장</button>
+                <button class="submit-reply" type="submit">저장</button>
               <% end %>
-            </div>
+          </div>
         </div>
     </div>
 
 </div>
 
 </body>
-<script src="../assets/javascripts/routeByButton.js"></script>
+<!-- <script src="../assets/javascripts/routeByButton.js"></script> -->
 
 </html>

@@ -1,5 +1,27 @@
-<%= form_tag("/search/list", :method => "get", id: "search-form") do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Search Posts" %>
-  <%= submit_tag "Search" %>
-<% end %>
-<a href="/posts">전체 글 보기</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/search.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style_common.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+
+<div class="content-wrapper search-bg">
+
+            <div class="search-input">
+                  <div class="icon_search">
+                  <%= form_tag("/search/list", :method => "get", id: "search-form") do %>
+                    <%= text_field_tag :query, params[:query], :style=>"border:0px", placeholder: "검색" %>
+                    <%= image_submit_tag  ( "search.png" ) , :style=>"width:20px" %>
+                  <% end %>
+            </div>
+        
+</div>
+
+</body>
+</html>

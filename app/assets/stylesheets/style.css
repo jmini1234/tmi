@@ -1,6 +1,11 @@
 * {
     font-family: 'Noto Sans KR', sans-serif;
     text-decoration: none;
+    box-sizing: border-box;
+}
+
+a{
+    color: #4d4d4d !important;
 }
 
 a#menu {
@@ -127,9 +132,96 @@ a#menu {
 
 
 
+/*****************************************/
+/*****************************************/
+/*****************************************/
+
+#comment_content{
+    width: calc(100% - 50px);
+    padding: 10px;
+    border: none;
+}
+
+.reply-input-div{
+    background-color: #fff;
+    border: none;
+
+}
 
 
+.reply-input-div>button.submit-reply{
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+}
 
 
+.submit-reply{
+    border: none;
+    background-color: #fff;
+
+}
+
+#post_title{
+    width: 100%;
+    padding: 14px 40px;
+    font-size: 16px;
+}
+
+#post_content{
+    margin: 10px 0;
+    color: #4d4d4d;
+}
+
+#new_post{
+    height: calc(100vh - 50%);
+    position: absolute;
+
+}
+
+#new_post button.submit{
+    position: relative;
+    bottom: -76px;
+    padding: 15px;
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    outline: none;
+
+}
+
+.search-input{
+    height: 70px;
+    width: 100%;
+    background-color: #4e90ff;
+}
+
+#search-form{
+    background-color: #fff;
+    padding: 10px;
+
+}
+#search-form>#query{
+
+    width: calc(100% - 50px);
+
+}
 
 
+.content-wrapper.search-bg{
+    background-color: #fff;
+    height: 100vh;
+}
+
+.post-number{
+    background-color: #fff;
+    padding: 10px 40px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.like-none{
+    background-image: url("/images/bookmark_no");
+}
