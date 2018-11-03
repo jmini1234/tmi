@@ -1,6 +1,50 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :posts
+  devise_for :users, :controllers => {
+    :registrations => "user/registrations",
+    :sessions => 'user/sessions'
+  }
+
+  get '/search' => 'search#index'
+  get '/search/list' => 'search#list'
+
+  get '/mypage' => 'mypage#my_post'
+  get '/mypage/new_news/:users_id' => 'mypage#new_news'
+  get '/mypage/bookmark/:users_id' => 'mypage#bookmark'
+  get '/mypage/setting/:users_id' => 'mypage#setting'
+
+  resources :posts do
+      resources :comments, only: [:create]
+    end
+  resources :comments, only: [:edit, :update, :destroy]
+
+  resources :posts, except: [:show] do
+     post "/bookmark", to: "mypage#bookmark_toggle"
+  end
+
+
+
+  post '/posts/:id/comment_create' => 'posts#comment_create'
+  # get 'mypage/:id/bookmark_create' => 'mypage#bookmark_create'
+  # delete 'mypage/:id/bookmark_destroy' => 'mypage#bookmark_destroy'
+  get '/' => 'posts#index'
+
+  # api
+  namespace :api do
+    namespace :v1 do
+      resources :posts
+      get '/search', :to => 'search#index'
+      get '/search/list', :to => 'search#list'
+      get '/mypage' => 'mypage#my_post'
+      get '/mypage/bookmark/:users_id' => 'mypage#bookmark'
+      get '/mypage/setting/:users_id' => 'mypage#setting'
+      devise_scope :user do
+        post "/sign_in", :to => 'sessions#create'
+        post "/sign_up", :to => 'registrations#create'
+        delete "/sign_out", :to => 'sessions#destroy'
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

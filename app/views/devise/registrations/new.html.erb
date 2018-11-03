@@ -1,29 +1,39 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <link rel="stylesheet" type="text/css" href="/assets/style_common.css">
+    <link rel="stylesheet" type="text/css" href="/assets/login.css">
+    <link rel="stylesheet" type="text/css" href="/assets/join.css">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+		<div class="wrapper" style="background:url('/assets/bg.png');   background-color: #002958;">
+		<div class="user-img join">
+			<div class="join title">회원가입</div>
+		</div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+      <div class="icon_id"><%= image_tag ( "icon_id.png") , :style=>"width:20px"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class =>"usernames",  placeholder: "ID", style: "color: #999999" %>
+      </div>
+      <div class="icon_pwd_"><%= image_tag ( "icon_pwd.png") , :style=>"width:20px"%>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <%= f.password_field :password, autocomplete: "new-password", :class => "password", placeholder: "Password" %>
+      </div>
+      <div class="icon_pwd2_"><%= image_tag ( "icon_pwd.png") , :style=>"width:20px"%>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "password", placeholder: "Confirm Password" %>
+      </div>
+      <% name = ["허심조", "김춘배", "냐냥이", "줍줍이", "보미낭자", "애오옹", "뿌셔뿌셔" ] %>
+      <%= f.hidden_field :nickname, value: name.sample %>
+      <button class="join_button login" type="submit">회원가입</button>
+    <%end%>
+    <button onclick="location.href='/users/sign_in'" class="login_button" >로그인하기</button>
+<!--    # <%#= link_to '로그인하기', new_user_session_path, :class=>"login_button" %>-->
+	</div>
+</body>
+</html>

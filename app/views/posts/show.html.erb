@@ -1,4 +1,74 @@
-<h1><%=@post.id %>번째 글</h1>
-<p>제목 : <%=@post.title %></p>
-<p>내용 : <%=@post.content %></p>
-<a href="/posts">뒤로</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/postView.css">
+    <link rel="stylesheet" type="text/css" href="/assets/style_common.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>TMI_Example</title>
+</head>
+<body>
+<nav>
+    <div class="nav-upper-section">
+        <button onclick="location.href='/posts'" class="back-button">
+          <%= image_tag ( "chevron_left.png" ) , :class=>"back-img"%>
+        </button>
+    </div>
+</nav>
+<div class="contenta-wrapper">
+    <!--SINGLE ELEMENT-->
+    <div class="content-element show-wrap">
+        <div class="content-preview">
+            <div class="content-title">
+              <%= @post.title %>
+            </div>
+            <div class="content-timestamp"><%= @user.nickname %> <%= @post.created_at.strftime("%m.%d") %></div>
+            <div class="content-text">
+              <%= @post.content %>
+            </div>
+        </div>
+        <div class="content-hashtag"> <%= @post.hashtag %> </div>
+        <div class="content-reply">
+            <i class="fa fa-clipboard-list"></i>&nbsp; <%= @post.comments.count %>
+            <% if current_user.is_Bookmark?(@post) %>
+            <%= link_to image_tag("bookmark_yes.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-none" %>
+            <% else %>
+            <%= link_to image_tag("bookmark_no.png", class:"bookmark-img-link"), post_bookmark_path(@post), method: "post", class:"like-yes" %>
+            <% end %>
+
+        </div>
+        <% @comments.each do |c| %>
+        <div class="content-reply-list">
+            <div class="content-reply-name">
+                <%= c.user.nickname %>
+            </div>
+            <div class="content-reply-text">
+              <%= c.content %>
+            </div>
+        </div>
+        <% end %>
+        <div class="content-reply-write">
+
+            <div class="content-reply-write-name">
+
+            </div>
+
+          <div class="reply-input-div">
+              <%= form_for Comment.new, url: post_comments_path(@post.id) do |f| %>
+                <%= f.text_field :content, placeholder:"댓글을 입력하세요"%>
+                <%= f.hidden_field :post_id, value: @post.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <button class="submit-reply" type="submit">저장</button>
+              <% end %>
+          </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<!-- <script src="../assets/javascripts/routeByButton.js"></script> -->
+
+</html>

@@ -1,0 +1,107 @@
+img, input, button {
+    vertical-align: middle;
+}
+
+* {
+    font-family: NotoSans;
+}
+
+.wrapper {
+    background-color: #fff;
+    height: 100vh;
+}
+
+.user-img {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+.login-wrapper .user-img{
+    margin: 60px 0 100px;
+}
+
+.user-img {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    margin: 100px 0 60px;
+    font-size: 26px;
+
+}
+
+form {
+    position: relative;
+    width: 100%;
+
+    text-align: center;
+}
+
+.new_user input {
+    width: 320px;
+    height: 60px;
+    margin-top: 20px;
+    padding: 4px 80px;
+    border: 0;
+    font-size: 14px;
+    border-radius: 92px;
+    box-shadow: 0 12px 60px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.icon_id > img {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+
+}
+
+.icon_pwd > img {
+    position: absolute;
+    top: 160px;
+    left: 60px;
+
+}
+
+.icon_pwd2 > img {
+    position: absolute;
+    top: 200px;
+    left: 80px;
+
+}
+
+button {
+    margin: 0 auto;
+}
+
+button.login {
+    width: 280px;
+    height: 60px;
+    font-size: 14px;
+    display: block;
+    background-color: #f0f0f0;
+    border-radius: 81px;
+    box-shadow: 0 12px 30px 0 rgba(55, 150, 244, 0.2);
+    background-color: #4e90ff;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    margin-top: 40px;
+}
+
+button.join {
+    color: #002958;
+    margin: 0 auto;
+    margin-top: 60px;
+    display: block;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    font-size: 12px;
+    border-radius: 69px;
+    border: solid 2px #002958;
+    background-color: #fff;
+
+}

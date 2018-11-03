@@ -1,0 +1,91 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+        font-family: 'Noto Sans KR', sans-serif;
+}
+body{
+    max-width: 500px;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #808080;
+    height: auto;
+}
+.back-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 15px;
+}
+.back-img{
+    width: 15px;
+}
+.nav-upper-section{
+    height:70px;
+    background-color: #4e90ff;
+    border-bottom: 1px solid #e9e9e9;
+}
+.nav-upper-section > img {
+  float: left;
+  left: 10px;
+}
+.nav-upper-button-wrap{
+    float: right;
+    padding: 6px 10px 3px;
+
+}
+.nav-upper-button-wrap > button{
+    width: auto;
+    padding: 12px 10px;
+
+}
+.nav-upper-button-wrap > button > img{
+    width: 20px;
+    margin-right: 20px;
+    float: left;
+
+
+}
+
+.nav-upper-button-wrap>button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    padding: 12px 0 4px;
+}
+.nav-upper-button-wrap>button.write {
+    opacity: 0.6;
+}
+
+.nav-lower-section{
+    height: 60px;
+}
+.nav-lower-button-wrap{
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.nav-lower-button-wrap > button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    color: #4c4c4c;
+    padding: 15px 0;
+    width: 22%;
+    margin: 0 3%;
+}
+.nav-lower-button-wrap > button.btn-selected{
+    border-bottom: 3px solid #4e90ff;
+    color: #4e90ff;
+
+}
+.content-wrapper{
+    background-color: #d8d8d8;
+    height: calc(100vh - 120px);
+    overflow: auto;
+}
