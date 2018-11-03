@@ -29,6 +29,7 @@ class Api::V1::PostsController < Api::V1::ApplicationController
 
 
   def show
+    @comments = Comment.where("post_id = ?", @post.id)
     @comment = Comment.new
   end
 
