@@ -18,6 +18,9 @@ img, input, button {
     text-align: center;
 
 }
+.login-wrapper .user-img{
+    margin: 60px 0 100px;
+}
 
 .user-img {
     width: 100%;
